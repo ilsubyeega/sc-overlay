@@ -14,6 +14,7 @@
 
 <Listing title="Full Background" description="Use the background to fill the screen." url="/background"/>
 <Listing title="PP Odometer" description="Obtain the current pp using odometer.js** animation (Only visible at playing/result currently)" url="/ppodometer"/>
+<Listing title="Leaderboard (Beta)" description="Temporary testing for leaderboard." url="/leaderboard"/>
 
 
 <style>
