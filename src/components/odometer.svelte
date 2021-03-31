@@ -19,7 +19,7 @@
         od.render();
         task = setInterval(() => {
             odometerelement.innerHTML = number;
-        }, 1000)
+        }, 750)
     })
     onDestroy(() => {
         clearInterval(task);

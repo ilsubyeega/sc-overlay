@@ -1,3 +1,3 @@
 # TODO
-- [ ] Fix odometer align problem
+- [x] Fix odometer align problem
 - [ ] Customise odometer
