@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap');
 body {
 	/* OBS requires to do that :c */
 	margin: 0;
@@ -53,6 +53,7 @@ body {
 	-webkit-backface-visibility: hidden;
   }
   .odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-default .odometer-digit .odometer-value {
+	will-change: transform;
 	display: block;
 	width: 100%;
   }
