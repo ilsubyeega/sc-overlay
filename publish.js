@@ -6,10 +6,10 @@ fs.writeFile(build_prefix + '/CNAME', 'sc-overlays.ilsubyeega.com ', function (e
     if (err) throw err;
     console.log('Saved CNAME.');
 });
-fs.writeFile(build_prefix + '/404.md', '---\npermalink: /index.html\n---', function (err) {
+fs.copyFile(build_prefix + '/index.html', build_prefix + '/404.html', (err) => {
     if (err) throw err;
-    console.log('Saved 404 Fallback.');
-});
+    console.log('Copied 404.html from index.html .');
+  });
 
 const ghpages = require('gh-pages');
 ghpages.publish(build_prefix, {
