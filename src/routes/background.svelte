@@ -29,7 +29,7 @@
 			data = { ...data, ...JSON.parse(event.data) };
 			if (data != null && lastbg != data.md5 && dummybg != null) {
 				lastbg = data.md5;
-				dummybg.src = `http://localhost:${port}/backgroundImage?width=1920&height=1080&dummyData=${data.md5}`; // &crop=1
+				dummybg.src = `http://localhost:${port}/backgroundImage?width=1920&height=1080&dummyData=${data.md5}&crop=1`;
 				dummybg.onload = function () {
 					bgelement.style.backgroundImage = `url("${dummybg.src}")`;
 				};
