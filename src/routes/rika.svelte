@@ -276,6 +276,7 @@
 		text-align: right;
 		letter-spacing: -0.06em;
 		width: 500px;
+		height: 50px;
 		text-overflow: ellipsis;
 
 		color: #ffffff;
