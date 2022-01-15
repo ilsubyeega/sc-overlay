@@ -275,6 +275,8 @@
 		line-height: 43px;
 		text-align: right;
 		letter-spacing: -0.06em;
+		width: 500px;
+		text-overflow: ellipsis;
 
 		color: #ffffff;
 
