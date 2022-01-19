@@ -4,13 +4,23 @@
 	import rcws from "./../reconnecting-websocket";
 	let ws;
 	let data;
-	let isPlaying;
+	let isPlaying = 0;
   let lastbg;
 	let dummybg;
 	let bgelement;
   const pad = (text) => {
     return text.length < 2 ? "0" + text : text;
   };
+	const changeSpeed = (time) => {
+		time = parseInt(time);
+		console.log(data?.mods)
+		if (!data?.mods || !isPlaying) return time;
+		if (data?.mods.includes("HT"))
+			return time / 0.75;
+		if (data?.mods.includes("DT") || data?.mods.includes("NC"))
+			return time / 1.5;
+		return time;
+	}
   const beautifyTime = (time) => {
     time = parseInt(time);
     const hour = Math.floor(time / 3600);
@@ -71,7 +81,8 @@
       "diffName",
       "md5",
       "time",
-      "totaltime"
+      "totalAudioTime",
+			"mods"
 		];
 
 		ws.onopen = (_) => {
@@ -81,8 +92,8 @@
 		ws.onmessage = (event) => {
 			data = { ...data, ...JSON.parse(event.data) };
 			isPlaying = !(data.status < 2 || data.status == 16);
-      if (data?.time != null && data?.totaltime != null) {
-        timePercentage = data.time / (data.totaltime/1000) * 100;
+      if (data?.time != null && data?.totalAudioTime != null) {
+        timePercentage = data.time / (data.totalAudioTime/1000) * 100;
       }
       if (data != null && lastbg != data.md5 && dummybg != null) {
 				lastbg = data.md5;
@@ -225,9 +236,9 @@
 					<badge>{data?.artistRoman ?? "Unknown"}</badge>
 				</badges>
 				<duration>
-					<current> {beautifyTime(data?.time ?? 0)} </current>
+					<current> {beautifyTime(changeSpeed(data?.time ?? 0))} </current>
 					<percentate> {timePercentage > 100 ? "100.00" : timePercentage.toFixed(2)}% </percentate>
-					<max> {beautifyTime(data?.totaltime/1000 ?? 0)} </max>
+					<max> {beautifyTime(changeSpeed(data?.totalAudioTime/1000 ?? 0))} </max>
 				</duration>
 			</info>
 			<bg bind:this={bgelement}/>
@@ -278,6 +289,8 @@
 		width: 500px;
 		height: 50px;
 		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
 
 		color: #ffffff;
 
