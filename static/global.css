@@ -9,7 +9,11 @@ body {
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-/* stolen from odometer */
+/* stolen from odometer, Licensed as MIT*/
+
+.odometer {
+    font-variant-numeric: tabular-nums slashed-zero;
+}
 
 .odometer.odometer-auto-theme,
 .odometer.odometer-theme-default {

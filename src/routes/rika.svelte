@@ -23,6 +23,7 @@
 	}
   const beautifyTime = (time) => {
     time = parseInt(time);
+		if (time < 0) time = 0;
     const hour = Math.floor(time / 3600);
     const min = Math.floor((time - hour * 3600) / 60);
     const sec = time % 60;
@@ -160,7 +161,7 @@
 				size="18px"
 				format="( ddd).dd"
         formatFunction={digitFormatFunction}
-				style="font-family:'Pretendard'; font-weight: 900; display: flex;align-content: center;align-items: center;"
+				style="font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-weight: 900; display: flex;align-content: center;align-items: center;"
 			/>
 		</ur>
 
@@ -279,7 +280,7 @@
     align-items: flex-end;
   }
 	music-box info music-title {
-		font-family: Pretendard;
+		font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 		font-style: normal;
 		font-weight: 300;
 		font-size: 36px;
@@ -357,7 +358,7 @@
 		width: 50px;
 		height: 30px;
 		font-size: 18px;
-		font-family: "Pretendard";
+		font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 		font-weight: 900;
 		color: #000;
 		background: #f3ddb6;
@@ -445,7 +446,7 @@
 		padding-top: 5px;
 	}
 	* {
-		font-family: "Pretendard", cursive;
+		font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 		display: block;
 	}
 	ur {
